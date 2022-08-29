@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Footer from './components/Footer';
+import Loading from './components/Loading';
+import Navbar from './components/Navbar';
+import GlobalProvider from './context/GlobalContext';
+import CurrentAnime from './pages/CurrentAnime';
+import Home from './pages/Home';
+import TopAnime from './pages/TopAnime';
+import UpcomingAnime from './pages/UpcomingAnime';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className='w-full max-w-screen-2xl'>
+            <BrowserRouter>
+                <GlobalProvider>
+                    <Loading />
+                    <Navbar />
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route
+                            path='/on-going-anime'
+                            element={<CurrentAnime />}
+                        />
+                        <Route
+                            path='/upcoming-anime'
+                            element={<UpcomingAnime />}
+                        />
+                        <Route path='top-anime' element={<TopAnime />} />
+                    </Routes>
+                    <Footer />
+                </GlobalProvider>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;
