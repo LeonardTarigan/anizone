@@ -67,7 +67,7 @@ function AnimeDetail() {
                         <ul className='flex flex-col gap-1 text-xs'>
                             <li>Type : {animeDetail.type}</li>
                             <li>Episodes : {animeDetail.episodes}</li>
-                            <li>Duration: {animeDetail.duration} </li>
+                            <li>Duration : {animeDetail.duration} </li>
                             <li>Source : {animeDetail.source}</li>
                             <li>Rating : {animeDetail.rating}</li>
                             <li>Genre : {animeDetail.genres.join(', ')}</li>

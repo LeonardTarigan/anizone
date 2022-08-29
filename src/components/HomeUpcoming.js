@@ -38,9 +38,9 @@ function HomeUpcoming() {
                                 <img
                                     src={large_image_url}
                                     alt={title}
-                                    className='h-40 w-32'
+                                    className='h-52 w-36 md:h-40 md:w-32'
                                 />
-                                <p className='absolute -bottom-[4.4rem] left-0 h-28 w-32 bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] text-white transition-all duration-300 group-hover:bottom-0'>
+                                <p className='absolute -bottom-[4.4rem] left-0 h-28 w-40 bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] text-white transition-all duration-300 group-hover:bottom-0 md:w-32'>
                                     {title}
                                 </p>
                             </Link>
