@@ -47,7 +47,7 @@ function Navbar() {
                                 : ''
                         }`}
                     >
-                        <Link to={'/on-going-anime'}>On-Going</Link>
+                        <Link to={'/ongoing-anime'}>Ongoing</Link>
                     </li>
                     <li
                         className={`cursor-pointer py-2 px-3 hover:bg-rose-500 hover:text-zinc-100 ${

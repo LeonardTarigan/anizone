@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function CurrentAnime() {
@@ -39,8 +40,11 @@ function CurrentAnime() {
                             console.log(anime);
 
                             return (
-                                <div
+                                <Link
                                     key={mal_id}
+                                    to={`/anime/${mal_id}/${title
+                                        .split(' ')
+                                        .join('_')}`}
                                     className='group relative h-fit w-fit cursor-pointer overflow-hidden bg-zinc-100'
                                 >
                                     <img
@@ -51,7 +55,7 @@ function CurrentAnime() {
                                     <p className='absolute -bottom-[4.3rem] left-0 h-24 w-40 bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] text-white transition-all duration-300 group-hover:bottom-0'>
                                         {title}
                                     </p>
-                                </div>
+                                </Link>
                             );
                         })}
             </div>

@@ -4,6 +4,7 @@ export const GlobalContext = createContext();
 
 function GlobalProvider(props) {
     const [loading, setLoading] = useState(false);
+    const [animeDetail, setAnimeDetail] = useState();
     const [animeList, setAnimeList] = useState();
     const [upcomingList, setUpcomingList] = useState();
     const [topList, setTopList] = useState();
@@ -20,6 +21,8 @@ function GlobalProvider(props) {
         setCurrentPage,
         topList,
         setTopList,
+        animeDetail,
+        setAnimeDetail,
     };
 
     return (

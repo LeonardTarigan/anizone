@@ -19,14 +19,8 @@ function HomeUpcoming() {
     }, [setUpcomingList]);
 
     return (
-        <section>
-            <div className='mb-7 flex items-center justify-between'>
-                <h2 className='text-lg font-semibold'>Upcoming</h2>
-
-                <button className='cursor-pointer text-xs transition-all duration-200 hover:text-rose-500'>
-                    <Link to={'/upcoming-anime'}>View More</Link>
-                </button>
-            </div>
+        <section className='flex flex-col gap-5'>
+            <h2 className='text-lg font-semibold'>Upcoming</h2>
             <div className='flex flex-wrap gap-4'>
                 {upcomingList &&
                     upcomingList.slice(0, 10).map((anime) => {
@@ -34,8 +28,11 @@ function HomeUpcoming() {
                         const { large_image_url } = anime.images.jpg;
 
                         return (
-                            <div
+                            <Link
                                 key={mal_id}
+                                to={`/anime/${mal_id}/${title
+                                    .split(' ')
+                                    .join('_')}`}
                                 className='group relative h-fit w-fit cursor-pointer overflow-hidden bg-zinc-100'
                             >
                                 <img
@@ -46,9 +43,14 @@ function HomeUpcoming() {
                                 <p className='absolute -bottom-[4.4rem] left-0 h-28 w-32 bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] text-white transition-all duration-300 group-hover:bottom-0'>
                                     {title}
                                 </p>
-                            </div>
+                            </Link>
                         );
                     })}
+            </div>
+            <div className='mt-3 flex justify-end'>
+                <button className='cursor-pointer text-xs transition-all duration-200 hover:text-rose-500'>
+                    <Link to={'/upcoming-anime'}>View More</Link>
+                </button>
             </div>
         </section>
     );

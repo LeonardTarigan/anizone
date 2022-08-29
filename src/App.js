@@ -3,6 +3,7 @@ import Footer from './components/Footer';
 import Loading from './components/Loading';
 import Navbar from './components/Navbar';
 import GlobalProvider from './context/GlobalContext';
+import AnimeDetail from './pages/AnimeDetail';
 import CurrentAnime from './pages/CurrentAnime';
 import Home from './pages/Home';
 import TopAnime from './pages/TopAnime';
@@ -18,14 +19,18 @@ function App() {
                     <Routes>
                         <Route path='/' element={<Home />} />
                         <Route
-                            path='/on-going-anime'
+                            path='/ongoing-anime'
                             element={<CurrentAnime />}
                         />
                         <Route
                             path='/upcoming-anime'
                             element={<UpcomingAnime />}
                         />
-                        <Route path='top-anime' element={<TopAnime />} />
+                        <Route path='/top-anime' element={<TopAnime />} />
+                        <Route
+                            path='/anime/:animeId/:animeName'
+                            element={<AnimeDetail />}
+                        />
                     </Routes>
                     <Footer />
                 </GlobalProvider>
