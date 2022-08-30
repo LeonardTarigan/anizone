@@ -27,7 +27,7 @@ function CurrentAnime() {
 
     return (
         <section className='px-5 py-10 md:px-20'>
-            <h2 className='mb-7 text-lg font-semibold'>On-Going Anime List</h2>
+            <h2 className='mb-7 text-lg font-semibold'>Ongoing Anime List</h2>
             <div className='flex flex-wrap gap-5'>
                 {animeList &&
                     animeList

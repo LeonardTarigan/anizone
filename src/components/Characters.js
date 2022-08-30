@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Characters() {
@@ -46,8 +47,13 @@ function Characters() {
                         {characterList &&
                             characterList.map((character) => {
                                 return (
-                                    <div
+                                    <Link
                                         key={character.id}
+                                        to={`/anime/character/${
+                                            character.id
+                                        }/${character.name
+                                            .split(' ')
+                                            .join('')}`}
                                         className='flex w-full gap-3 overflow-hidden rounded-md bg-zinc-800 sm:w-[17rem]'
                                     >
                                         <img
@@ -68,7 +74,7 @@ function Characters() {
                                                 Seiyuu : {character.seiyuu}
                                             </p>
                                         </div>
-                                    </div>
+                                    </Link>
                                 );
                             })}
                     </div>

@@ -4,6 +4,7 @@ import Loading from './components/Loading';
 import Navbar from './components/Navbar';
 import GlobalProvider from './context/GlobalContext';
 import AnimeDetail from './pages/AnimeDetail';
+import CharacterDetail from './pages/CharacterDetail';
 import CurrentAnime from './pages/CurrentAnime';
 import Home from './pages/Home';
 import TopAnime from './pages/TopAnime';
@@ -30,6 +31,10 @@ function App() {
                         <Route
                             path='/anime/:animeId/:animeName'
                             element={<AnimeDetail />}
+                        />
+                        <Route
+                            path='/anime/character/:characterId/:characterName'
+                            element={<CharacterDetail />}
                         />
                     </Routes>
                     <Footer />
