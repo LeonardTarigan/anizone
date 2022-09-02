@@ -48,7 +48,7 @@ function CharacterDetail() {
                     <img
                         src={characterDetail.image}
                         alt={characterDetail.name}
-                        className='h-56 w-52 rounded-md'
+                        className='h-64 w-48 rounded-md md:h-72 md:w-52'
                     />
 
                     <div className='flex flex-col gap-7'>

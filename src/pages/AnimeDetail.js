@@ -53,7 +53,7 @@ function AnimeDetail() {
                     <img
                         src={animeDetail.image}
                         alt={animeDetail.title}
-                        className='h-72 w-52 rounded-md'
+                        className='h-64 w-48 rounded-md md:h-72 md:w-52'
                     />
 
                     <div className='flex flex-col gap-7'>
