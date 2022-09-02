@@ -13,7 +13,7 @@ function Loading() {
                     <p className='text-[3rem] font-bold'>
                         Ani<span className='text-rose-500'>Zone</span>
                     </p>
-                    <HashLoader color='#cbd5e1' />
+                    <HashLoader color='#d4d4d8' />
                 </div>
             ) : (
                 ''

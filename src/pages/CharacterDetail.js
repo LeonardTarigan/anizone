@@ -16,7 +16,6 @@ function CharacterDetail() {
             axios
                 .get(`https://api.jikan.moe/v4/characters/${characterId}/full`)
                 .then((response) => {
-                    console.log(response.data.data);
                     let data = response.data.data;
 
                     setCharacterDetail({
@@ -42,8 +41,6 @@ function CharacterDetail() {
         }
     }, [setLoading, characterId, setCharacterDetail]);
 
-    console.log(characterDetail);
-
     return (
         <>
             {characterDetail && (
@@ -51,7 +48,7 @@ function CharacterDetail() {
                     <img
                         src={characterDetail.image}
                         alt={characterDetail.name}
-                        className='h-72 w-52 rounded-md'
+                        className='h-56 w-52 rounded-md'
                     />
 
                     <div className='flex flex-col gap-7'>
