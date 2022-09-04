@@ -19,7 +19,6 @@ function AnimeDetail() {
                 .get(`https://api.jikan.moe/v4/anime/${animeId}`)
                 .then((response) => {
                     let data = response.data.data;
-                    console.log(data);
 
                     setAnimeDetail({
                         airing: data.airing,
@@ -46,8 +45,6 @@ function AnimeDetail() {
                 });
         }
     }, [animeId, setAnimeDetail, setLoading]);
-
-    // console.log(animeDetail.trailer);
 
     return (
         <>
