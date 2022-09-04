@@ -52,7 +52,7 @@ function CurrentAnime() {
                                         className='h-56 w-40'
                                     />
                                     <div className='absolute -bottom-[3.3rem] left-0 h-24 w-40 bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] text-white transition-all duration-300 group-hover:bottom-0'>
-                                        <div className='flex gap-1'>
+                                        <div className='flex items-center gap-1'>
                                             <svg
                                                 className='h-4 w-4 fill-yellow-500'
                                                 viewBox='0 0 20 20'
