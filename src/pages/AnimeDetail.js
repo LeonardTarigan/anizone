@@ -50,44 +50,45 @@ function AnimeDetail() {
         <>
             {animeDetail !== undefined && (
                 <section className='flex flex-col gap-5 px-5 py-10 md:px-20 lg:flex-row'>
-                    <div className='flex flex-col gap-5'>
-                        <img
-                            src={animeDetail.image}
-                            alt={animeDetail.title}
-                            className='h-56 w-44 rounded-md md:h-60 md:w-52'
-                        />
-                    </div>
-
                     <div className='flex w-fit flex-col gap-10'>
-                        <div className='flex flex-col gap-5'>
-                            <div>
-                                <h3 className='text-2xl font-bold'>
-                                    {animeDetail.title}
-                                </h3>
-                                <p>{animeDetail.title_japanese}</p>
-                            </div>
-
-                            {animeDetail.score !== null && (
-                                <div className='flex items-center gap-1 font-semibold'>
-                                    <svg
-                                        className='h-4 w-4 fill-yellow-500'
-                                        viewBox='0 0 20 20'
-                                        xmlns='http://www.w3.org/2000/svg'
-                                    >
-                                        <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-                                    </svg>
-                                    <p>{animeDetail.score}</p>
+                        <div className='flex flex-col gap-5 sm:flex-row'>
+                            <img
+                                src={animeDetail.image}
+                                alt={animeDetail.title}
+                                className='h-56 w-44 rounded-md md:h-60 md:w-44'
+                            />
+                            <div className='flex flex-col gap-5'>
+                                <div>
+                                    <h3 className='text-2xl font-bold'>
+                                        {animeDetail.title}
+                                    </h3>
+                                    <p>{animeDetail.title_japanese}</p>
                                 </div>
-                            )}
 
-                            <ul className='flex flex-col gap-1 text-xs'>
-                                <li>Type : {animeDetail.type}</li>
-                                <li>Episodes : {animeDetail.episodes}</li>
-                                <li>Duration : {animeDetail.duration} </li>
-                                <li>Source : {animeDetail.source}</li>
-                                <li>Rating : {animeDetail.rating}</li>
-                                <li>Genre : {animeDetail.genres.join(', ')}</li>
-                            </ul>
+                                {animeDetail.score !== null && (
+                                    <div className='flex items-center gap-1 font-semibold'>
+                                        <svg
+                                            className='h-4 w-4 fill-yellow-500'
+                                            viewBox='0 0 20 20'
+                                            xmlns='http://www.w3.org/2000/svg'
+                                        >
+                                            <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
+                                        </svg>
+                                        <p>{animeDetail.score}</p>
+                                    </div>
+                                )}
+
+                                <ul className='flex flex-col gap-1 text-xs'>
+                                    <li>Type : {animeDetail.type}</li>
+                                    <li>Episodes : {animeDetail.episodes}</li>
+                                    <li>Duration : {animeDetail.duration} </li>
+                                    <li>Source : {animeDetail.source}</li>
+                                    <li>Rating : {animeDetail.rating}</li>
+                                    <li>
+                                        Genre : {animeDetail.genres.join(', ')}
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
 
                         {animeDetail.score !== null && (
@@ -144,7 +145,7 @@ function AnimeDetail() {
                             <h5 className='text-sm font-semibold'>Trailer</h5>
                             <div className='my-2 h-px w-full bg-zinc-500'></div>
                             {animeDetail.trailer !== null ? (
-                                <div className='relative aspect-video overflow-hidden rounded-lg md:w-2/3'>
+                                <div className='relative aspect-video overflow-hidden rounded-lg md:w-3/5'>
                                     <ReactPlayer
                                         url={animeDetail.trailer}
                                         controls

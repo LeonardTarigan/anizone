@@ -54,7 +54,7 @@ function Characters() {
                                         }/${character.name
                                             .split(' ')
                                             .join('')}`}
-                                        className='flex w-full gap-3 overflow-hidden rounded-md bg-zinc-800 sm:w-[17rem]'
+                                        className='flex w-full gap-3 overflow-hidden rounded-md bg-zinc-800 sm:w-[16rem]'
                                     >
                                         <img
                                             src={character.image}
