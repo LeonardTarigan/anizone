@@ -8,15 +8,17 @@ function TopAside() {
     const { topList, setTopList } = state;
 
     useEffect(() => {
-        axios
-            .get('https://api.jikan.moe/v4/top/anime')
-            .then((response) => {
-                setTopList(response.data.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, [setTopList]);
+        if (topList === undefined) {
+            axios
+                .get('https://api.jikan.moe/v4/top/anime')
+                .then((response) => {
+                    setTopList(response.data.data);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
+    }, [setTopList, topList]);
 
     return (
         <aside className='hidden h-fit w-full basis-1/3 flex-col items-center overflow-hidden rounded-md bg-zinc-800 md:flex'>
@@ -46,7 +48,7 @@ function TopAside() {
                                 <p className='text-sm'>{index + 1}</p>
                                 <img
                                     src={large_image_url}
-                                    className='h-28 w-20 bg-white'
+                                    className='h-28 w-20 rounded-sm bg-white'
                                     alt={title}
                                 />
                                 <div className='flex flex-col justify-between'>

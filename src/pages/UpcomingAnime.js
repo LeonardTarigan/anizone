@@ -26,9 +26,9 @@ function UpcomingAnime() {
     }, [setLoading, setUpcomingList, setCurrentPage, upcomingList]);
 
     return (
-        <section className='px-5 py-10 md:px-20'>
+        <section className='flex flex-col items-center px-5 py-10 md:items-start md:px-20'>
             <h2 className='mb-7 text-lg font-semibold'>Upcoming Anime List</h2>
-            <div className='flex flex-wrap gap-5'>
+            <div className='flex flex-wrap justify-center gap-5 md:justify-start'>
                 {upcomingList &&
                     upcomingList.map((anime) => {
                         const { title, mal_id } = anime;
@@ -40,7 +40,7 @@ function UpcomingAnime() {
                                 to={`/anime/${mal_id}/${title
                                     .split(' ')
                                     .join('_')}`}
-                                className='group relative h-fit w-fit cursor-pointer overflow-hidden bg-zinc-100'
+                                className='group relative h-fit w-fit cursor-pointer overflow-hidden rounded-md bg-zinc-100'
                             >
                                 <img
                                     src={large_image_url}

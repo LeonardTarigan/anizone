@@ -19,9 +19,9 @@ function HomeCurrent() {
     }, [setAnimeList]);
 
     return (
-        <section className='flex flex-col gap-5'>
-            <h2 className='text-lg font-semibold'>Ongoing</h2>
-            <div className='flex flex-wrap gap-4'>
+        <section className='flex flex-col items-center gap-5 md:items-start'>
+            <h2 className='mb-5 text-lg font-semibold'>Ongoing</h2>
+            <div className='flex flex-wrap justify-center gap-4 md:justify-start'>
                 {animeList &&
                     animeList
                         .filter((anime) => {
@@ -38,7 +38,7 @@ function HomeCurrent() {
                                     to={`/anime/${mal_id}/${title
                                         .split(' ')
                                         .join('_')}`}
-                                    className='group relative h-fit w-fit cursor-pointer overflow-hidden bg-zinc-100'
+                                    className='group relative h-fit w-fit cursor-pointer overflow-hidden rounded-md bg-zinc-100'
                                 >
                                     <img
                                         src={large_image_url}
