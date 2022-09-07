@@ -8,7 +8,7 @@ function CurrentAnime() {
     const { animeList, setAnimeList, setLoading, setCurrentPage } = state;
 
     useEffect(() => {
-        setCurrentPage('on-going');
+        setCurrentPage('ongoing-anime');
 
         if (animeList === undefined) {
             setLoading(true);

@@ -8,7 +8,7 @@ function UpcomingAnime() {
     const { upcomingList, setUpcomingList, setLoading, setCurrentPage } = state;
 
     useEffect(() => {
-        setCurrentPage('upcoming');
+        setCurrentPage('upcoming-anime');
 
         if (upcomingList === undefined) {
             setLoading(true);

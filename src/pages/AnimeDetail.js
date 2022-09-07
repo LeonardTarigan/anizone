@@ -50,7 +50,7 @@ function AnimeDetail() {
         <>
             {animeDetail !== undefined && (
                 <section className='flex flex-col gap-5 px-5 py-10 md:px-20 lg:flex-row'>
-                    <div className='flex w-fit flex-col gap-10'>
+                    <div className='flex w-full flex-col gap-10'>
                         <div className='flex flex-col gap-5 sm:flex-row'>
                             <img
                                 src={animeDetail.image}

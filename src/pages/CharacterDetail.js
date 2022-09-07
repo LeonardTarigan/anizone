@@ -26,6 +26,7 @@ function CharacterDetail() {
                         image: data.images.jpg.image_url,
                         voices: data.voices.map((result) => {
                             return {
+                                id: result.person.mal_id,
                                 language: result.language,
                                 name: result.person.name,
                                 image: result.person.images.jpg.image_url,
@@ -48,7 +49,7 @@ function CharacterDetail() {
                     <img
                         src={characterDetail.image}
                         alt={characterDetail.name}
-                        className='h-64 w-48 rounded-md md:h-72 md:w-52'
+                        className='h-52 w-36 rounded-md md:h-60 md:w-52'
                     />
 
                     <div className='flex flex-col gap-7'>

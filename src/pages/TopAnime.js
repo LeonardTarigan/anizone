@@ -8,7 +8,7 @@ function TopAnime() {
     const { topList, setTopList, setLoading, setCurrentPage } = state;
 
     useEffect(() => {
-        setCurrentPage('top');
+        setCurrentPage('top-anime');
 
         if (topList === undefined) {
             setLoading(true);

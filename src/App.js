@@ -7,6 +7,7 @@ import AnimeDetail from './pages/AnimeDetail';
 import CharacterDetail from './pages/CharacterDetail';
 import CurrentAnime from './pages/CurrentAnime';
 import Home from './pages/Home';
+import SearchAnime from './pages/SearchAnime';
 import TopAnime from './pages/TopAnime';
 import UpcomingAnime from './pages/UpcomingAnime';
 
@@ -35,6 +36,10 @@ function App() {
                         <Route
                             path='/anime/character/:characterId/:characterName'
                             element={<CharacterDetail />}
+                        />
+                        <Route
+                            path='/anime/search/:query'
+                            element={<SearchAnime />}
                         />
                     </Routes>
                     <Footer />

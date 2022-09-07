@@ -1,4 +1,6 @@
+import axios from 'axios';
 import React, { createContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const GlobalContext = createContext();
 
@@ -9,6 +11,43 @@ function GlobalProvider(props) {
     const [upcomingList, setUpcomingList] = useState();
     const [topList, setTopList] = useState();
     const [currentPage, setCurrentPage] = useState('home');
+    const [search, setSearch] = useState('');
+    const [searchResult, setSearchResult] = useState();
+    const navigate = useNavigate();
+
+    const handleSearch = (event) => {
+        event.preventDefault();
+
+        setLoading(true);
+
+        axios
+            .get(
+                `https://api.jikan.moe/v4/anime?q=${search}&order_by=title&sort=asc&sfw=true`
+            )
+            .then((response) => {
+                const data = response.data.data;
+                console.log(data);
+                setSearchResult(
+                    data.filter((result) => {
+                        return (
+                            result.approved === true && result.score !== null
+                        );
+                    })
+                );
+
+                navigate(`/anime/search/${search.split(' ').join('+')}`);
+                setLoading(false);
+            });
+    };
+
+    const handleInputChange = (event) => {
+        setSearch(event.target.value);
+    };
+
+    let handler = {
+        handleSearch,
+        handleInputChange,
+    };
 
     let state = {
         loading,
@@ -23,11 +62,15 @@ function GlobalProvider(props) {
         setTopList,
         animeDetail,
         setAnimeDetail,
+        search,
+        setSearch,
+        searchResult,
+        setSearchResult,
     };
 
     return (
         <>
-            <GlobalContext.Provider value={{ state }}>
+            <GlobalContext.Provider value={{ state, handler }}>
                 {props.children}
             </GlobalContext.Provider>
         </>

@@ -1,10 +1,22 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 function Navbar() {
     const { state } = useContext(GlobalContext);
     const { currentPage } = state;
+
+    const menus = [
+        { link: '/', title: 'Home', pageName: 'home' },
+        { link: '/ongoing-anime', title: 'Ongoing', pageName: 'ongoing-anime' },
+        {
+            link: '/upcoming-anime',
+            title: 'Upcoming',
+            pageName: 'upcoming-anime',
+        },
+        { link: '/top-anime', title: 'Top Anime', pageName: 'top-anime' },
+    ];
 
     return (
         <>
@@ -20,54 +32,25 @@ function Navbar() {
                     </Link>
                 </div>
             </header>
-            <nav className='sticky top-0 z-10 border-b-4 border-rose-500 bg-zinc-800 px-5 text-zinc-100 md:px-20'>
+            <nav className='top-0 z-10 flex flex-col-reverse gap-2 overflow-hidden border-b-4 border-rose-500 bg-zinc-800 px-5 text-zinc-100 md:px-20 lg:sticky lg:flex-row lg:justify-between'>
                 <ul className='flex flex-wrap justify-center whitespace-nowrap text-sm font-semibold md:justify-start'>
-                    <li
-                        className={`cursor-pointer py-2 px-3 hover:bg-rose-500 hover:text-zinc-100 ${
-                            currentPage === 'home'
-                                ? 'bg-rose-500 text-zinc-100'
-                                : ''
-                        }`}
-                    >
-                        <Link to={'/'}>Home</Link>
-                    </li>
-                    {/* <li
-                        className={`cursor-pointer py-2 px-3 hover:bg-rose-500 hover:text-zinc-100 ${
-                            currentPage === 'genre'
-                                ? 'bg-rose-500 text-zinc-100'
-                                : ''
-                        }`}
-                    >
-                        Genre
-                    </li> */}
-                    <li
-                        className={`cursor-pointer py-2 px-3 hover:bg-rose-500 hover:text-zinc-100 ${
-                            currentPage === 'on-going'
-                                ? 'bg-rose-500 text-zinc-100'
-                                : ''
-                        }`}
-                    >
-                        <Link to={'/ongoing-anime'}>Ongoing</Link>
-                    </li>
-                    <li
-                        className={`cursor-pointer py-2 px-3 hover:bg-rose-500 hover:text-zinc-100 ${
-                            currentPage === 'upcoming'
-                                ? 'bg-rose-500 text-zinc-100'
-                                : ''
-                        }`}
-                    >
-                        <Link to={'/upcoming-anime'}>Upcoming</Link>
-                    </li>
-                    <li
-                        className={`cursor-pointer py-2 px-3 hover:bg-rose-500 hover:text-zinc-100 ${
-                            currentPage === 'top'
-                                ? 'bg-rose-500 text-zinc-100'
-                                : ''
-                        }`}
-                    >
-                        <Link to={'/top-anime'}>Top Anime</Link>
-                    </li>
+                    {menus.map((result, index) => {
+                        return (
+                            <li
+                                key={index}
+                                className={`basis-1/2 cursor-pointer py-2 px-3 hover:bg-rose-500 hover:text-zinc-100 md:basis-0 ${
+                                    currentPage === result.pageName
+                                        ? 'bg-rose-500 text-zinc-100'
+                                        : ''
+                                }`}
+                            >
+                                <Link to={result.link}>{result.title}</Link>
+                            </li>
+                        );
+                    })}
                 </ul>
+
+                <SearchBar />
             </nav>
         </>
     );
