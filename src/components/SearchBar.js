@@ -4,7 +4,7 @@ import { GlobalContext } from '../context/GlobalContext';
 
 function SearchBar() {
     const { state, handler } = useContext(GlobalContext);
-    const { search, setSearch } = state;
+    const { search } = state;
     const { handleSearch, handleInputChange } = handler;
 
     return (
