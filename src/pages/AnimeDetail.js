@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import ReactPlayer from 'react-player/lazy';
+import ReactPlayer from 'react-player/youtube';
 import { useParams } from 'react-router-dom';
 import Characters from '../components/Characters';
 import { GlobalContext } from '../context/GlobalContext';

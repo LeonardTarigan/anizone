@@ -41,7 +41,7 @@ function SearchAnime() {
     return (
         <>
             {searchResult && (
-                <section className='flex flex-col items-center px-5 py-10 md:items-start md:px-20'>
+                <section className='flex h-fit min-h-[30rem] flex-col items-center px-5 py-10 md:items-start md:px-20'>
                     {searchResult.length === 0 ? (
                         <div className='flex w-full flex-col items-center justify-center gap-10 py-10'>
                             <img
@@ -49,7 +49,7 @@ function SearchAnime() {
                                 alt='pouting-anime'
                                 className='mr-5 contrast-125'
                             />
-                            <p className='text-2xl font-semibold'>
+                            <p className='text-xl font-semibold'>
                                 No result ...
                             </p>
                         </div>

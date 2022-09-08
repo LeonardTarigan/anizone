@@ -86,7 +86,9 @@ function CharacterDetail() {
                                             <div className='flex flex-col justify-between py-2'>
                                                 <div>
                                                     <h5 className='text-sm font-bold'>
-                                                        {actor.name}
+                                                        {actor.name
+                                                            .split(', ')
+                                                            .join(' ')}
                                                     </h5>
                                                     <p className='text-xs text-zinc-400'>
                                                         {actor.language}
