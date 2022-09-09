@@ -16,12 +16,9 @@ function SearchAnime() {
             setSearch(query.split('+').join(' '));
 
             axios
-                .get(
-                    `https://api.jikan.moe/v4/anime?q=${query}&order_by=title&sort=asc&sfw=true`
-                )
+                .get(`https://api.jikan.moe/v4/anime?q=${query}&sfw=true`)
                 .then((response) => {
                     const data = response.data.data;
-                    console.log(data);
                     setSearchResult(
                         data.filter((result) => {
                             return (
