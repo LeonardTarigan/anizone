@@ -4,6 +4,18 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+body::-webkit-scrollbar {
+    @apply w-1.5;
+}
+
+body::-webkit-scrollbar-track {
+    @apply bg-zinc-800;
+}
+
+body::-webkit-scrollbar-thumb {
+    @apply rounded-3xl border-2 border-solid border-zinc-900 bg-rose-500;
+}
+
 body {
     @apply bg-zinc-900 text-zinc-100;
 
