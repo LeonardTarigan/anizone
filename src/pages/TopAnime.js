@@ -2,34 +2,73 @@ import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Pagination from '../components/Pagination';
+import { TopAnimeContext } from '../context/TopAnimeContext';
+import ComponentLoading from '../components/ComponentLoading';
 
 function TopAnime() {
     const { state } = useContext(GlobalContext);
-    const { topList, setTopList, setLoading, setCurrentPage } = state;
+    const { topAnimeState } = useContext(TopAnimeContext);
+
+    const {
+        topList,
+        setTopList,
+        fetchStatus,
+        setFetchStatus,
+        // setLoading,
+        setCurrentPage,
+    } = state;
+
+    const {
+        pagination,
+        componentLoading,
+        setComponentLoading,
+        maxPagination,
+        setMaxPagination,
+        handlePagination,
+    } = topAnimeState;
 
     useEffect(() => {
         setCurrentPage('top-anime');
 
-        if (topList === undefined) {
-            setLoading(true);
+        if (
+            topList === undefined ||
+            fetchStatus === true ||
+            maxPagination === 0
+        ) {
+            setComponentLoading(true);
             axios
-                .get('https://api.jikan.moe/v4/top/anime')
+                .get(`https://api.jikan.moe/v4/top/anime?page=${pagination}`)
                 .then((response) => {
                     setTopList(response.data.data);
+                    setMaxPagination(41);
 
-                    setLoading(false);
+                    setComponentLoading(false);
+                    setFetchStatus(false);
                 })
                 .catch((error) => {
                     console.log(error);
                 });
         }
-    }, [setLoading, setTopList, setCurrentPage, topList]);
+    }, [
+        setComponentLoading,
+        setTopList,
+        setCurrentPage,
+        topList,
+        fetchStatus,
+        setFetchStatus,
+        pagination,
+        maxPagination,
+        setMaxPagination,
+    ]);
 
     return (
-        <section className='flex flex-col items-center px-5 py-10 md:items-start md:px-20'>
-            <h2 className='mb-7 text-lg font-semibold'>Top Anime List</h2>
-            <div className='flex flex-wrap justify-center gap-5 md:justify-start'>
+        <section className='flex flex-col items-center gap-7 px-5 py-10 md:items-start md:px-20'>
+            <h2 className='text-lg font-semibold'>Top Anime List</h2>
+            <div className='flex w-full flex-wrap justify-evenly gap-5 sm:justify-start'>
+                {componentLoading && <ComponentLoading />}
                 {topList &&
+                    componentLoading === false &&
                     topList.map((anime) => {
                         const { title, mal_id, rank, score } = anime;
                         const { large_image_url } = anime.images.jpg;
@@ -50,7 +89,7 @@ function TopAnime() {
                                     alt={title}
                                     className='h-56 w-40'
                                 />
-                                <div className='absolute -bottom-[3.3rem] left-0 h-24 w-40 bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] text-white transition-all duration-300 group-hover:bottom-0'>
+                                <div className='absolute -bottom-[3.2rem] left-0 h-24 w-40 bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] leading-relaxed text-white transition-all duration-300 group-hover:bottom-0'>
                                     <div className='flex items-center gap-1'>
                                         <svg
                                             className='h-4 w-4 fill-yellow-500'
@@ -67,6 +106,13 @@ function TopAnime() {
                         );
                     })}
             </div>
+            <Pagination
+                current={pagination}
+                max={maxPagination}
+                handleNext={() => handlePagination('next')}
+                handlePrev={() => handlePagination('prev')}
+                handleMax={() => handlePagination('max')}
+            />
         </section>
     );
 }

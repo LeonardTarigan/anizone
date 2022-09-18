@@ -16,6 +16,7 @@ function Navbar() {
             pageName: 'upcoming-anime',
         },
         { link: '/top-anime', title: 'Top Anime', pageName: 'top-anime' },
+        { link: '/genres', title: 'Genres', pageName: 'genres' },
     ];
 
     return (
@@ -33,19 +34,24 @@ function Navbar() {
                 </div>
             </header>
             <nav className='top-0 z-10 flex flex-col-reverse gap-2 overflow-hidden border-b-4 border-rose-500 bg-zinc-800 px-5 text-zinc-100 md:px-20 lg:sticky lg:flex-row lg:justify-between'>
-                <ul className='flex flex-wrap justify-center whitespace-nowrap text-sm font-semibold md:justify-start'>
+                <ul className='flex flex-wrap  whitespace-nowrap text-sm font-semibold md:justify-start'>
                     {menus.map((result, index) => {
                         return (
-                            <li
+                            <Link
                                 key={index}
-                                className={`basis-1/2 cursor-pointer py-2 px-3 hover:bg-rose-500 hover:text-zinc-100 md:basis-0 ${
-                                    currentPage === result.pageName
-                                        ? 'bg-rose-500 text-zinc-100'
-                                        : ''
-                                }`}
+                                to={result.link}
+                                className='basis-1/2 cursor-pointer md:basis-0'
                             >
-                                <Link to={result.link}>{result.title}</Link>
-                            </li>
+                                <li
+                                    className={`py-2 px-3 hover:bg-rose-500 hover:text-zinc-100 md:basis-0 ${
+                                        currentPage === result.pageName
+                                            ? 'bg-rose-500 text-zinc-100'
+                                            : ''
+                                    }`}
+                                >
+                                    {result.title}
+                                </li>
+                            </Link>
                         );
                     })}
                 </ul>

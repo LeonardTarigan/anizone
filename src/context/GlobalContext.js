@@ -6,10 +6,13 @@ export const GlobalContext = createContext();
 
 function GlobalProvider(props) {
     const [loading, setLoading] = useState(false);
+    const [fetchStatus, setFetchStatus] = useState(false);
     const [animeDetail, setAnimeDetail] = useState();
     const [animeList, setAnimeList] = useState();
     const [upcomingList, setUpcomingList] = useState();
     const [topList, setTopList] = useState();
+    const [animeByGenre, setAnimeByGenre] = useState();
+    const [genreList, setGenreList] = useState();
     const [currentPage, setCurrentPage] = useState('home');
     const [search, setSearch] = useState('');
     const [searchResult, setSearchResult] = useState();
@@ -64,6 +67,12 @@ function GlobalProvider(props) {
         setSearch,
         searchResult,
         setSearchResult,
+        genreList,
+        setGenreList,
+        fetchStatus,
+        setFetchStatus,
+        animeByGenre,
+        setAnimeByGenre,
     };
 
     return (

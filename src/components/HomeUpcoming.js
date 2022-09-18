@@ -47,9 +47,26 @@ function HomeUpcoming() {
                         );
                     })}
             </div>
-            <div className='mt-3 flex justify-end'>
+            <div className='mt-3 flex w-full justify-center md:justify-end'>
                 <button className='cursor-pointer text-xs transition-all duration-200 hover:text-rose-500'>
-                    <Link to={'/upcoming-anime'}>View More</Link>
+                    <Link
+                        to={'/upcoming-anime'}
+                        className='group flex items-center gap-1'
+                    >
+                        <div>View More</div>
+                        <svg
+                            className='h-4 w-5 transition-all duration-200 group-hover:translate-x-1'
+                            fill='currentColor'
+                            viewBox='0 0 20 20'
+                            xmlns='http://www.w3.org/2000/svg'
+                        >
+                            <path
+                                fillRule='evenodd'
+                                d='M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z'
+                                clipRule='evenodd'
+                            />
+                        </svg>
+                    </Link>
                 </button>
             </div>
         </section>
