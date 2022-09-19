@@ -10,14 +10,8 @@ function TopAnime() {
     const { state } = useContext(GlobalContext);
     const { topAnimeState } = useContext(TopAnimeContext);
 
-    const {
-        topList,
-        setTopList,
-        fetchStatus,
-        setFetchStatus,
-        // setLoading,
-        setCurrentPage,
-    } = state;
+    const { topList, setTopList, fetchStatus, setFetchStatus, setCurrentPage } =
+        state;
 
     const {
         pagination,

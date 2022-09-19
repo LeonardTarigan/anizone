@@ -11,6 +11,7 @@ function GlobalProvider(props) {
     const [animeList, setAnimeList] = useState();
     const [upcomingList, setUpcomingList] = useState();
     const [topList, setTopList] = useState();
+    const [topFive, setTopFive] = useState();
     const [animeByGenre, setAnimeByGenre] = useState();
     const [genreList, setGenreList] = useState();
     const [currentPage, setCurrentPage] = useState('home');
@@ -61,6 +62,8 @@ function GlobalProvider(props) {
         setCurrentPage,
         topList,
         setTopList,
+        topFive,
+        setTopFive,
         animeDetail,
         setAnimeDetail,
         search,

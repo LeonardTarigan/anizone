@@ -71,8 +71,6 @@ function CurrentAnime() {
         setComponentLoading,
     ]);
 
-    console.log(animeList);
-
     return (
         <section className='flex flex-col items-center px-5 py-10 md:items-start md:px-20'>
             <h2 className='mb-7 text-lg font-semibold'>

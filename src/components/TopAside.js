@@ -5,20 +5,20 @@ import axios from 'axios';
 
 function TopAside() {
     const { state } = useContext(GlobalContext);
-    const { topList, setTopList } = state;
+    const { topFive, setTopFive } = state;
 
     useEffect(() => {
-        if (topList === undefined) {
+        if (topFive === undefined) {
             axios
                 .get('https://api.jikan.moe/v4/top/anime')
                 .then((response) => {
-                    setTopList(response.data.data);
+                    setTopFive(response.data.data.slice(0, 5));
                 })
                 .catch((error) => {
                     console.log(error);
                 });
         }
-    }, [setTopList, topList]);
+    }, [setTopFive, topFive]);
 
     return (
         <aside className='hidden h-fit w-full basis-1/3 flex-col items-center overflow-hidden rounded-md bg-zinc-800 md:flex'>
@@ -26,8 +26,8 @@ function TopAside() {
                 <Link to={'/top-anime'}>Top Anime</Link>
             </div>
             <ul className='flex w-full flex-col'>
-                {topList &&
-                    topList.slice(0, 5).map((anime, index) => {
+                {topFive &&
+                    topFive.slice(0, 5).map((anime, index) => {
                         const { title, mal_id, episodes, score, genres } =
                             anime;
                         const { large_image_url } = anime.images.jpg;
