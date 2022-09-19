@@ -6,7 +6,7 @@ import { GlobalContext } from '../context/GlobalContext';
 
 function Home() {
     const { state } = useContext(GlobalContext);
-    const { setCurrentPage, setLoading, animeList, upcomingList, topList } =
+    const { setCurrentPage, setLoading, animeList, upcomingList, topFive } =
         state;
 
     useEffect(() => {
@@ -17,10 +17,10 @@ function Home() {
         if (
             animeList !== undefined &&
             upcomingList !== undefined &&
-            topList !== undefined
+            topFive !== undefined
         )
             setLoading(false);
-    }, [setLoading, setCurrentPage, animeList, upcomingList, topList]);
+    }, [setLoading, setCurrentPage, animeList, upcomingList, topFive]);
 
     return (
         <div className='flex gap-10 px-5 py-10 md:px-20'>
