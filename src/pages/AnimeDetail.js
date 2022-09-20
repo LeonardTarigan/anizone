@@ -95,8 +95,8 @@ function AnimeDetail() {
                             <div
                                 className={`${
                                     animeDetail.airing === true
-                                        ? 'bg-green-600'
-                                        : 'bg-blue-600'
+                                        ? 'bg-rose-500'
+                                        : 'bg-zinc-700'
                                 } rounded-sm py-1 text-center text-xs font-semibold`}
                             >
                                 {animeDetail.airing === true ? (

@@ -4,6 +4,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+::selection {
+    @apply bg-rose-500 text-zinc-100;
+}
+
 body::-webkit-scrollbar {
     @apply w-1.5;
 }
