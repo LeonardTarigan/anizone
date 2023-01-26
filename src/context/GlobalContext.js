@@ -39,6 +39,7 @@ function GlobalProvider(props) {
 
                 navigate(`/anime/search/${search.split(' ').join('+')}`);
                 setLoading(false);
+                setCurrentPage('');
             });
     };
 

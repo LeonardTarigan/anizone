@@ -58,9 +58,11 @@ function TopAnime() {
 
     return (
         <section className='flex flex-col items-center gap-7 px-5 py-10 md:items-start md:px-20'>
-            <h2 className='text-lg font-semibold'>Top Anime List</h2>
-            <div className='flex w-full flex-wrap justify-evenly gap-5 sm:justify-start'>
-                {componentLoading && <ComponentLoading />}
+            <h2 className='text-2xl font-semibold'>Top Anime List</h2>
+
+            {componentLoading && <ComponentLoading />}
+
+            <div className='grid w-full grid-cols-2 place-items-center gap-4 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7'>
                 {topList &&
                     componentLoading === false &&
                     topList.map((anime) => {
@@ -73,7 +75,7 @@ function TopAnime() {
                                 to={`/anime/${mal_id}/${title
                                     .split(' ')
                                     .join('_')}`}
-                                className='group relative h-fit w-fit cursor-pointer overflow-hidden rounded-md bg-zinc-100'
+                                className='group relative aspect-[3/4] h-fit w-fit cursor-pointer overflow-hidden rounded-md bg-zinc-100'
                             >
                                 <div className='absolute rounded-br-md bg-rose-500 p-1 text-sm font-bold'>
                                     #{rank}
@@ -81,9 +83,9 @@ function TopAnime() {
                                 <img
                                     src={large_image_url}
                                     alt={title}
-                                    className='h-56 w-40'
+                                    className='h-full w-full object-cover'
                                 />
-                                <div className='absolute -bottom-[3.2rem] left-0 h-24 w-40 bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] leading-relaxed text-white transition-all duration-300 group-hover:bottom-0'>
+                                <div className='absolute -bottom-[3.2rem] left-0 h-24 w-full bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] leading-relaxed text-white transition-all duration-300 group-hover:bottom-0'>
                                     <div className='flex items-center gap-1'>
                                         <svg
                                             className='h-4 w-4 fill-yellow-500'

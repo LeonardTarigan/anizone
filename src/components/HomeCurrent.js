@@ -20,8 +20,8 @@ function HomeCurrent() {
 
     return (
         <section className='flex flex-col items-center gap-5 md:items-start'>
-            <h2 className='mb-5 text-lg font-semibold'>Current Season</h2>
-            <div className='flex flex-wrap justify-center gap-4 md:justify-start'>
+            <h2 className='mb-5 text-2xl font-semibold'>Current Season</h2>
+            <div className='grid grid-cols-2 gap-4  sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
                 {animeList &&
                     animeList.slice(0, 10).map((anime) => {
                         const { title, mal_id } = anime;
@@ -33,14 +33,14 @@ function HomeCurrent() {
                                 to={`/anime/${mal_id}/${title
                                     .split(' ')
                                     .join('_')}`}
-                                className='group relative h-fit w-fit cursor-pointer overflow-hidden rounded-md bg-zinc-100'
+                                className='group relative aspect-[3/4] h-fit w-fit cursor-pointer overflow-hidden rounded-md bg-zinc-100'
                             >
                                 <img
                                     src={large_image_url}
                                     alt={title}
-                                    className='h-52 w-36 md:h-40 md:w-32'
+                                    className=' md:h-40 md:w-32'
                                 />
-                                <p className='absolute -bottom-[4.4rem] left-0 h-28 w-40 bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] text-white transition-all duration-300 group-hover:bottom-0 md:w-32'>
+                                <p className='absolute -bottom-[5.32rem] left-0 h-28 w-full bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] text-white transition-all duration-300 group-hover:bottom-0 md:w-32'>
                                     {title}
                                 </p>
                             </Link>

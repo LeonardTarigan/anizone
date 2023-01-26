@@ -56,6 +56,7 @@ function GenreProvider(props) {
         animeByGenre,
         setAnimeByGenre,
     };
+
     return (
         <GenreContext.Provider value={{ genreState }}>
             {props.children}

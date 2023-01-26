@@ -19,6 +19,7 @@ function AnimeDetail() {
                 .get(`https://api.jikan.moe/v4/anime/${animeId}`)
                 .then((response) => {
                     let data = response.data.data;
+                    console.log(data);
 
                     setAnimeDetail({
                         airing: data.airing,
@@ -29,7 +30,7 @@ function AnimeDetail() {
                         score: data.score,
                         duration: data.duration,
                         image: data.images.jpg.large_image_url,
-                        trailer: data.trailer.url,
+                        trailer: data.trailer.embed_url,
                         rating: data.rating,
                         source: data.source,
                         episodes: data.episodes,
@@ -138,7 +139,9 @@ function AnimeDetail() {
                         <div>
                             <h5 className='text-sm font-semibold'>Synopsis</h5>
                             <div className='my-2 h-px w-full bg-zinc-500'></div>
-                            <p className='text-xs'>{animeDetail.synopsis}</p>
+                            <p className='text-xs'>
+                                {animeDetail.synopsis || '-'}
+                            </p>
                         </div>
 
                         <div>
@@ -152,6 +155,7 @@ function AnimeDetail() {
                                         width='100%'
                                         height='100%'
                                         loop
+                                        key={'youtube'}
                                         className='absolute top-0 left-0'
                                     />
                                 </div>

@@ -67,9 +67,11 @@ function UpcomingAnime() {
 
     return (
         <section className='flex flex-col items-center px-5 py-10 md:items-start md:px-20'>
-            <h2 className='mb-7 text-lg font-semibold'>Upcoming Anime List</h2>
-            <div className='flex w-full flex-wrap justify-evenly gap-5 md:justify-start'>
-                {componentLoading && <ComponentLoading />}
+            <h2 className='mb-7 text-2xl font-semibold'>Upcoming Anime List</h2>
+
+            {componentLoading && <ComponentLoading />}
+
+            <div className='grid w-full grid-cols-2 place-items-center gap-4 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7'>
                 {upcomingList &&
                     componentLoading === false &&
                     upcomingList.map((anime) => {
@@ -82,14 +84,14 @@ function UpcomingAnime() {
                                 to={`/anime/${mal_id}/${title
                                     .split(' ')
                                     .join('_')}`}
-                                className='group relative h-fit w-fit cursor-pointer overflow-hidden rounded-md bg-zinc-100'
+                                className='group relative aspect-[3/4] h-fit w-fit cursor-pointer overflow-hidden rounded-md bg-zinc-100'
                             >
                                 <img
                                     src={large_image_url}
                                     alt={title}
-                                    className='h-56 w-40'
+                                    className='h-full w-full object-cover'
                                 />
-                                <p className='absolute -bottom-[4.2rem] left-0 h-24 w-40 bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] leading-relaxed text-white transition-all duration-300 group-hover:bottom-0'>
+                                <p className='absolute -bottom-[4.2rem] left-0 h-24 w-full bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] leading-relaxed text-white transition-all duration-300 group-hover:bottom-0'>
                                     {title}
                                 </p>
                             </Link>
