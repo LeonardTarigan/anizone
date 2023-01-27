@@ -9,7 +9,7 @@ function AnimeDetail() {
     let { animeId } = useParams();
     const { state } = useContext(GlobalContext);
     const { setLoading } = state;
-    const [animeDetail, setAnimeDetail] = useState();
+    const [animeDetail, setAnimeDetail, setCurrentPage] = useState();
 
     useEffect(() => {
         setLoading(true);
@@ -45,7 +45,7 @@ function AnimeDetail() {
                     console.log(error);
                 });
         }
-    }, [animeId, setAnimeDetail, setLoading]);
+    }, [animeId, setAnimeDetail, setLoading, setCurrentPage]);
 
     return (
         <>
@@ -80,13 +80,55 @@ function AnimeDetail() {
                                 )}
 
                                 <ul className='flex flex-col gap-1 text-xs'>
-                                    <li>Type : {animeDetail.type}</li>
-                                    <li>Episodes : {animeDetail.episodes}</li>
-                                    <li>Duration : {animeDetail.duration} </li>
-                                    <li>Source : {animeDetail.source}</li>
-                                    <li>Rating : {animeDetail.rating}</li>
                                     <li>
-                                        Genre : {animeDetail.genres.join(', ')}
+                                        Type :{' '}
+                                        {animeDetail.type || (
+                                            <i className='text-xs text-zinc-400'>
+                                                Unknown
+                                            </i>
+                                        )}
+                                    </li>
+                                    <li>
+                                        Episodes :{' '}
+                                        {animeDetail.episodes || (
+                                            <i className='text-xs text-zinc-400'>
+                                                Unknown
+                                            </i>
+                                        )}
+                                    </li>
+                                    <li>
+                                        Duration :{' '}
+                                        {(animeDetail.duration &&
+                                            animeDetail.duration !==
+                                                'Unknown') || (
+                                            <i className='text-xs text-zinc-400'>
+                                                Unknown
+                                            </i>
+                                        )}{' '}
+                                    </li>
+                                    <li>
+                                        Source :{' '}
+                                        {animeDetail.source || (
+                                            <i className='text-xs text-zinc-400'>
+                                                Unknown
+                                            </i>
+                                        )}
+                                    </li>
+                                    <li>
+                                        Rating :{' '}
+                                        {animeDetail.rating || (
+                                            <i className='text-xs text-zinc-400'>
+                                                Unknown
+                                            </i>
+                                        )}
+                                    </li>
+                                    <li>
+                                        Genre :{' '}
+                                        {animeDetail.genres.join(', ') || (
+                                            <i className='text-xs text-zinc-400'>
+                                                Unknown
+                                            </i>
+                                        )}
                                     </li>
                                 </ul>
                             </div>
@@ -139,9 +181,13 @@ function AnimeDetail() {
                         <div>
                             <h5 className='text-sm font-semibold'>Synopsis</h5>
                             <div className='my-2 h-px w-full bg-zinc-500'></div>
-                            <p className='text-xs'>
-                                {animeDetail.synopsis || '-'}
-                            </p>
+                            {animeDetail.synopsis !== null ? (
+                                <p className='text-xs'>
+                                    {animeDetail.synopsis}
+                                </p>
+                            ) : (
+                                <i className='text-xs text-zinc-400'>No data</i>
+                            )}
                         </div>
 
                         <div>

@@ -67,9 +67,7 @@ function CurrentAnime() {
 
     return (
         <section className='flex flex-col items-center px-5 py-10 md:items-start md:px-20'>
-            <h2 className='mb-7 text-2xl font-semibold'>
-                Current Season Anime List
-            </h2>
+            <h2 className='mb-7 text-2xl font-semibold'>Ongoing Anime List</h2>
 
             {componentLoading && <ComponentLoading />}
 

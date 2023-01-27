@@ -49,10 +49,13 @@ function Characters() {
 
     return (
         <>
-            {characterList !== undefined && (
-                <div>
-                    <h5 className='text-sm font-semibold'>Characters</h5>
-                    <div className='my-2 h-px w-full bg-zinc-500'></div>
+            {/* {characterList !== undefined && ( */}
+            <div>
+                <h5 className='text-sm font-semibold'>Characters</h5>
+                <div className='my-2 h-px w-full bg-zinc-500'></div>
+                {characterList === undefined || characterList.length <= 0 ? (
+                    <i className='text-xs text-zinc-400'>No data</i>
+                ) : (
                     <div className='flex flex-wrap gap-5'>
                         {characterList &&
                             characterList.map((character) => {
@@ -64,7 +67,7 @@ function Characters() {
                                         }/${character.name
                                             .split(/[,\s]/)
                                             .join('_')}`}
-                                        className='flex w-full gap-3 overflow-hidden rounded-md bg-zinc-800 sm:w-[16rem]'
+                                        className='flex w-full gap-3 overflow-hidden rounded-md border-2 border-zinc-900 bg-zinc-800 hover:border-rose-500 sm:w-[16rem]'
                                     >
                                         <img
                                             src={character.image}
@@ -93,8 +96,8 @@ function Characters() {
                                 );
                             })}
                     </div>
-                </div>
-            )}
+                )}
+            </div>
         </>
     );
 }

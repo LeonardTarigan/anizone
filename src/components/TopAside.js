@@ -23,7 +23,7 @@ function TopAside() {
     return (
         <aside className='hidden h-fit w-full basis-1/3 flex-col items-center overflow-hidden rounded-md bg-zinc-800 md:flex'>
             <div className='w-ful py-3 text-center font-bold'>
-                <Link to={'/top-anime'}>Top 5 Anime</Link>
+                <Link to={'/top-anime'}>Current Rank</Link>
             </div>
             <ul className='flex w-full flex-col'>
                 {topFive &&

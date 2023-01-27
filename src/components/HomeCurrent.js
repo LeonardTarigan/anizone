@@ -20,7 +20,7 @@ function HomeCurrent() {
 
     return (
         <section className='flex flex-col items-center gap-5 md:items-start'>
-            <h2 className='mb-5 text-2xl font-semibold'>Current Season</h2>
+            <h2 className='mb-5 text-2xl font-semibold'>Ongoing Anime</h2>
             <div className='grid grid-cols-2 gap-4  sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
                 {animeList &&
                     animeList.slice(0, 10).map((anime) => {

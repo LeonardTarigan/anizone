@@ -42,6 +42,8 @@ function CharacterDetail() {
         }
     }, [setLoading, characterId, setCharacterDetail]);
 
+    console.log(characterDetail);
+
     return (
         <>
             {characterDetail && (
@@ -63,7 +65,13 @@ function CharacterDetail() {
                         <div>
                             <h5 className='text-sm font-semibold'>About</h5>
                             <div className='my-2 h-px w-full bg-zinc-500'></div>
-                            <p className='text-xs'>{characterDetail.about}</p>
+                            {characterDetail.about !== null ? (
+                                <p className='text-xs'>
+                                    {characterDetail.about}
+                                </p>
+                            ) : (
+                                <i className='text-xs text-zinc-400'>No data</i>
+                            )}
                         </div>
 
                         <div>
@@ -71,34 +79,38 @@ function CharacterDetail() {
                                 Voice Actors
                             </h5>
                             <div className='my-2 h-px w-full bg-zinc-500'></div>
-                            <div className='flex flex-wrap gap-5'>
-                                {characterDetail.voices.map((actor) => {
-                                    return (
-                                        <div
-                                            key={actor.id}
-                                            className='flex w-full gap-3 overflow-hidden rounded-md bg-zinc-800 sm:w-[17rem]'
-                                        >
-                                            <img
-                                                src={actor.image}
-                                                alt={actor.name}
-                                                className='h-28 w-20'
-                                            />
-                                            <div className='flex flex-col justify-between py-2'>
-                                                <div>
-                                                    <h5 className='text-sm font-bold'>
-                                                        {actor.name
-                                                            .split(', ')
-                                                            .join(' ')}
-                                                    </h5>
-                                                    <p className='text-xs text-zinc-400'>
-                                                        {actor.language}
-                                                    </p>
+                            {characterDetail.voices.length > 0 ? (
+                                <div className='flex flex-wrap gap-5'>
+                                    {characterDetail.voices.map((actor) => {
+                                        return (
+                                            <div
+                                                key={actor.id}
+                                                className='flex w-full gap-3 overflow-hidden rounded-md bg-zinc-800 sm:w-[17rem]'
+                                            >
+                                                <img
+                                                    src={actor.image}
+                                                    alt={actor.name}
+                                                    className='h-28 w-20'
+                                                />
+                                                <div className='flex flex-col justify-between py-2'>
+                                                    <div>
+                                                        <h5 className='text-sm font-bold'>
+                                                            {actor.name
+                                                                .split(', ')
+                                                                .join(' ')}
+                                                        </h5>
+                                                        <p className='text-xs text-zinc-400'>
+                                                            {actor.language}
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
+                                        );
+                                    })}
+                                </div>
+                            ) : (
+                                <i className='text-xs text-zinc-400'>No data</i>
+                            )}
                         </div>
                     </div>
                 </section>

@@ -71,7 +71,7 @@ function SearchAnime() {
                                                 alt={title}
                                                 className='h-full w-full object-cover'
                                             />
-                                            <div className='absolute -bottom-[3.3rem] left-0 h-24 w-full bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] text-white transition-all duration-300 group-hover:bottom-0'>
+                                            <div className='absolute -bottom-[3.32rem] left-0 h-24 w-full bg-zinc-900 bg-opacity-80 p-2 text-[0.65rem] text-white transition-all duration-300 group-hover:bottom-0'>
                                                 <div className='flex items-center gap-1'>
                                                     <svg
                                                         className='h-4 w-4 fill-yellow-500'

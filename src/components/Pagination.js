@@ -5,8 +5,10 @@ function Pagination(props) {
         <div className='mt-10 flex w-full items-center justify-center gap-5 text-sm'>
             <button
                 onClick={props.handlePrev}
-                className={`flex cursor-pointer ${
-                    props.current <= 1 ? 'cursor-not-allowed text-zinc-400' : ''
+                className={`flex cursor-pointer p-2 ${
+                    props.current <= 1
+                        ? 'cursor-not-allowed text-zinc-400'
+                        : 'hover:text-rose-500'
                 }`}
             >
                 {'<'} Prev
@@ -19,10 +21,10 @@ function Pagination(props) {
             </div>
             <button
                 onClick={props.handleNext}
-                className={`flex cursor-pointer ${
+                className={`flex cursor-pointer p-2 ${
                     props.current === props.max
                         ? 'cursor-not-allowed text-zinc-400'
-                        : ''
+                        : 'hover:text-rose-500'
                 }`}
             >
                 Next {'>'}
