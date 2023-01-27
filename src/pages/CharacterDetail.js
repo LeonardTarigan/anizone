@@ -1,7 +1,7 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
+import axios from 'axios';
 
 function CharacterDetail() {
     let { characterId } = useParams();

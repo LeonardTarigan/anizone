@@ -1,11 +1,9 @@
-import axios from 'axios';
-import React from 'react';
-import { useContext } from 'react';
-import { useEffect } from 'react';
-import { GlobalContext } from '../context/GlobalContext';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Pagination from './Pagination';
+import { GlobalContext } from '../context/GlobalContext';
 import { GenreContext } from '../context/GenreContext';
+import Pagination from './Pagination';
+import axios from 'axios';
 import ComponentLoading from './ComponentLoading';
 
 function AnimeByGenre() {
@@ -56,8 +54,6 @@ function AnimeByGenre() {
         setMaxPagination,
         setPagination,
     ]);
-
-    // console.log(animeByGenre);
 
     return (
         <div className='flex w-full flex-wrap gap-5'>

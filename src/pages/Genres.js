@@ -1,10 +1,10 @@
-import axios from 'axios';
 import React from 'react';
 import { useEffect } from 'react';
 import { useContext } from 'react';
-import AnimeByGenre from '../components/AnimeByGenre';
 import { GenreContext } from '../context/GenreContext';
 import { GlobalContext } from '../context/GlobalContext';
+import AnimeByGenre from '../components/AnimeByGenre';
+import axios from 'axios';
 
 function Genres() {
     const { state } = useContext(GlobalContext);

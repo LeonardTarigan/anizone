@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
+import { UpcomingContext } from '../context/UpcomingContext';
 import Pagination from '../components/Pagination';
 import axios from 'axios';
-import { UpcomingContext } from '../context/UpcomingContext';
 import ComponentLoading from '../components/ComponentLoading';
 
 function UpcomingAnime() {

@@ -45,11 +45,8 @@ function Characters() {
             });
     }, [animeId]);
 
-    // console.log(characterList.seiyuu);
-
     return (
         <>
-            {/* {characterList !== undefined && ( */}
             <div>
                 <h5 className='text-sm font-semibold'>Characters</h5>
                 <div className='my-2 h-px w-full bg-zinc-500'></div>

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import { GlobalContext } from '../context/GlobalContext';
 import { Link } from 'react-router-dom';
+import { TopAnimeContext } from '../context/TopAnimeContext';
 import axios from 'axios';
 import Pagination from '../components/Pagination';
-import { TopAnimeContext } from '../context/TopAnimeContext';
 import ComponentLoading from '../components/ComponentLoading';
 
 function TopAnime() {

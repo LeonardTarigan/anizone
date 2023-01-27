@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
+import { GlobalContext } from '../context/GlobalContext';
 import HomeCurrent from '../components/HomeCurrent';
 import HomeUpcoming from '../components/HomeUpcoming';
 import TopAside from '../components/TopAside';
-import { GlobalContext } from '../context/GlobalContext';
 
 function Home() {
     const { state } = useContext(GlobalContext);
